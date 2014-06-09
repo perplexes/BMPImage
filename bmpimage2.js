@@ -222,3 +222,18 @@ BMPImage.readFrom = function(source, callback) {
         xhr.send();
     }
 }
+
+var all;
+if (typeof self !== 'undefined') {
+    all = self;
+} else if (typeof window !== 'undefined') {
+    all = window;
+} else if (typeof global !== 'undefined') {
+    all = global;
+}
+// Browser + Web Worker
+all.BMPImage = BMPImage;
+// NodeJS + NPM
+if (typeof module !== 'undefined') {
+    module.exports = BMPImage;
+}
