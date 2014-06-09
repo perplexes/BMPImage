@@ -1,3 +1,7 @@
+if (typeof jParser === 'undefined' && typeof require !== 'undefined') {
+    jParser = require('jParser');
+}
+
 function BMPImage(data) {
     this.parser = new jParser(data, BMPImage.structure);
     this.meta = this.parser.parse('header');
